@@ -26,6 +26,6 @@ bot.on("new_chat_members", (ctx) => {
 });
 
 bot.launch();
-
+bot.command('dick',(ctx)=>ctx.reply('dick'));
 process.once("SIGINT", () => bot.stop("SIGINT"));
 process.once("SIGTERM", () => bot.stop("SIGTERM"));
