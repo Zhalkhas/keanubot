@@ -1,4 +1,6 @@
+const http = require('http');
 const { Telegraf } = require("telegraf");
+
 const token = "1556563631:AAH7PrTYBAZhQrdHbq7mWHA9ey7f9fCurMM";
 const bot = new Telegraf(token);
 bot.on("new_chat_members", (ctx) => {
@@ -26,6 +28,8 @@ bot.on("new_chat_members", (ctx) => {
 });
 
 bot.launch();
+const server = http.createServer((a,b)=>{});
+server.listen(process.env.PORT, 'localhost', ()=>console.log('server started at :'+process.env.PORT));
 bot.command('dick',(ctx)=>ctx.reply('dick'));
 process.once("SIGINT", () => bot.stop("SIGINT"));
 process.once("SIGTERM", () => bot.stop("SIGTERM"));
