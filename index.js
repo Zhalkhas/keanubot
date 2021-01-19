@@ -12,7 +12,7 @@ bot.on("new_chat_members", (ctx) => {
       "](tg://user?id=" +
       user.id +
       ")";
-    var text = "Well cum " + (user?.username ?? fisrtLastName);
+    var text = "Well cum @" + (user?.username ?? fisrtLastName);
     console.log(text);
     bot.telegram.sendVideo(
       ctx.update.message.chat.id,
