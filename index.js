@@ -28,8 +28,11 @@ bot.on("new_chat_members", (ctx) => {
 });
 
 bot.launch();
-const server = http.createServer((a,b)=>{});
-server.listen(process.env.PORT, 'localhost', ()=>console.log('server started at :'+process.env.PORT));
+const server = http.createServer((req,res)=>{
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/plain');
+  res.end('Hello World');
+}).listen(process.env.PORT);
 bot.command('dick',(ctx)=>ctx.reply('dick'));
 process.once("SIGINT", () => bot.stop("SIGINT"));
 process.once("SIGTERM", () => bot.stop("SIGTERM"));
