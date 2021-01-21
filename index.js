@@ -1,4 +1,3 @@
-const http = require('http');
 const { Telegraf } = require("telegraf");
 
 const token = "1556563631:AAH7PrTYBAZhQrdHbq7mWHA9ey7f9fCurMM";
@@ -26,13 +25,8 @@ bot.on("new_chat_members", (ctx) => {
     );
   });
 });
+bot.command("dick", (ctx) => ctx.reply("dick"));
 
-bot.launch();
-const server = http.createServer((req,res)=>{
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World');
-}).listen(process.env.PORT);
-bot.command('dick',(ctx)=>ctx.reply('dick'));
+bot.launch({ webhook: { domain: "https://keanubot.herokuapp.com", port: process.env.PORT } });
 process.once("SIGINT", () => bot.stop("SIGINT"));
 process.once("SIGTERM", () => bot.stop("SIGTERM"));
