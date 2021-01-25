@@ -18,7 +18,22 @@ const stickers = [
   "CAACAgIAAxkBAAM_YA5qyhKWkCJxxHXXRTJw42Vbj-IAAn8AA7zdTxF25nn5ubWtoR4E",
   "CAACAgIAAxkBAANAYA5qzO0hLvgT0Z-KooDopj9JMkcAAoAAA7zdTxGIte3HEWRlOh4E",
 ];
-const keywords = ["cum", "dick", "cock","fuck"];
+const keywords = [
+  "cum",
+  "dick",
+  "cock",
+  "fuck",
+  "ass",
+  "қотақ",
+  "сік",
+  "сіг",
+  "көт",
+  "hole",
+  "cunt",
+  "twitch",
+  "fom",
+  "фом",
+];
 const token = "1556563631:AAH7PrTYBAZhQrdHbq7mWHA9ey7f9fCurMM";
 const bot = new Telegraf(token);
 bot.on("new_chat_members", (ctx) => {
