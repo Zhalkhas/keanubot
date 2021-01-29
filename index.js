@@ -35,6 +35,7 @@ const keywords = [
   "фом",
 ];
 const token = "1556563631:AAH7PrTYBAZhQrdHbq7mWHA9ey7f9fCurMM";
+// const token = "1190808446:AAEhq4JwQonAKf6f2yXj4xJiJStHXuSyzig";
 const bot = new Telegraf(token);
 bot.on("new_chat_members", (ctx) => {
   console.log(ctx.update.message.new_chat_members);
@@ -59,8 +60,8 @@ bot.on("new_chat_members", (ctx) => {
     );
   });
 });
-bot.on("message", (ctx) => {
-  const text = ctx.message.text;
+
+function handleText(text, ctx) {
   for (let i = 0; i < keywords.length; i++) {
     let keyword = keywords[i];
     if (text.toLowerCase().includes(keyword)) {
@@ -72,7 +73,18 @@ bot.on("message", (ctx) => {
       return;
     }
   }
+}
+
+bot.on("message", (ctx) => {
+  const text = ctx.message.text;
+  handleText(text, ctx);
 });
+
+bot.on("edited_message", (ctx) => {
+  const text = ctx.update.edited_message.text;
+  handleText(text, ctx);
+});
+
 bot.command("dick", (ctx) => ctx.replyWithSticker(stickers[3]));
 bot.command("cum", (ctx) => ctx.replyWithSticker(stickers[2]));
 bot.launch({
