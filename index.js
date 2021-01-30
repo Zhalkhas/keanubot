@@ -35,7 +35,9 @@ const keywords = [
   "фом",
 ];
 const token = process.env.TOKEN;
+const url = "https://"+process.env.HEROKU_APP_NAME+".herokuapp.com";
 const bot = new Telegraf(token);
+
 bot.on("new_chat_members", (ctx) => {
   console.log(ctx.update.message.new_chat_members);
   ctx.update.message.new_chat_members.forEach((user) => {
@@ -87,7 +89,8 @@ bot.on("edited_message", (ctx) => {
 bot.command("dick", (ctx) => ctx.replyWithSticker(stickers[3]));
 bot.command("cum", (ctx) => ctx.replyWithSticker(stickers[2]));
 bot.launch({
-  webhook: { domain: "https://keanubot.herokuapp.com", port: process.env.PORT },
+  webhook: { domain: url, port: process.env.PORT },
 });
+console.log('Started server on '+url);
 process.once("SIGINT", () => bot.stop("SIGINT"));
 process.once("SIGTERM", () => bot.stop("SIGTERM"));
