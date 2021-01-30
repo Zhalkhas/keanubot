@@ -34,8 +34,7 @@ const keywords = [
   "fom",
   "фом",
 ];
-const token = "1556563631:AAH7PrTYBAZhQrdHbq7mWHA9ey7f9fCurMM";
-// const token = "1190808446:AAEhq4JwQonAKf6f2yXj4xJiJStHXuSyzig";
+const token = process.env.TOKEN;
 const bot = new Telegraf(token);
 bot.on("new_chat_members", (ctx) => {
   console.log(ctx.update.message.new_chat_members);
