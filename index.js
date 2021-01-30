@@ -35,7 +35,7 @@ const keywords = [
   "фом",
 ];
 const token = process.env.TOKEN;
-const url = "https://"+process.env.HEROKU_APP_NAME+".herokuapp.com";
+const url = "https://"+process.env.APP_NAME+".herokuapp.com";
 const bot = new Telegraf(token);
 
 bot.on("new_chat_members", (ctx) => {
