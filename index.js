@@ -33,6 +33,8 @@ const keywords = [
   "twitch",
   "fom",
   "фом",
+  "толеби",
+  "пидор",
 ];
 const token = process.env.TOKEN;
 const url = "https://"+process.env.APP_NAME+".herokuapp.com";
